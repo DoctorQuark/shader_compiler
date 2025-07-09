@@ -453,8 +453,8 @@ fn compile(
         .optimize_size = false,
         .disassemble = false,
         .validate = true,
-        .emit_nonsemantic_shader_debug_info = false,
-        .emit_nonsemantic_shader_debug_source = false,
+        .emit_nonsemantic_shader_debug_info = args.named.debug,
+        .emit_nonsemantic_shader_debug_source = args.named.debug,
         .compile_only = false,
         .optimize_allow_expanded_id_bound = false,
     };
