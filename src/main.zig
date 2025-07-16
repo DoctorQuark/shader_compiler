@@ -286,7 +286,7 @@ pub fn main() void {
 
     const remapped = if (args.named.remap) remap(optimized) else optimized;
 
-    validate(args.positional.INPUT, remapped, args);
+    //validate(args.positional.INPUT, remapped, args);
 
     writeSpirv(cwd, args.positional.OUTPUT, remapped);
 }
@@ -452,9 +452,11 @@ fn compile(
         .disable_optimizer = true,
         .optimize_size = false,
         .disassemble = false,
-        .validate = true,
-        .emit_nonsemantic_shader_debug_info = args.named.debug,
-        .emit_nonsemantic_shader_debug_source = args.named.debug,
+        .validate = false,
+        .emit_nonsemantic_shader_debug_info = false,
+        .emit_nonsemantic_shader_debug_source = false,
+        //.emit_nonsemantic_shader_debug_info = args.named.debug,
+        //.emit_nonsemantic_shader_debug_source = args.named.debug,
         .compile_only = false,
         .optimize_allow_expanded_id_bound = false,
     };
